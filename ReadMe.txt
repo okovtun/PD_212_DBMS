@@ -1,4 +1,5 @@
 https://github.com/okovtun/PD_212_DBMS.git
+https://www.youtube.com/playlist?list=PLeqyOOqxeiIPp-5TXYg-W_NIMbivLkfxO
 
 TODO:
 1. Используя Visual Paradigm или другое ПО нарисовать ERD базы данных для Академии:
