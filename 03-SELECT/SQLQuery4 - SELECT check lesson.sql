@@ -1,8 +1,13 @@
-SELECT COUNT(*)
-FROM Schedule
+SELECT COUNT(*) 
+FROM
+	dbo.Schedule, dbo.Groups, dbo.Disciplines, dbo.Teachers
 WHERE
-	[group]		= (SELECT group_id		FROM Groups			WHERE group_name = 'PD_212')
-AND [discipline]= (SELECT discipline_id FROM Disciplines	WHERE discipline_name LIKE '%MS SQL%')
+	dbo.Schedule.discipline = dbo.Disciplines.discipline_id
+AND dbo.Schedule.[group] = dbo.Groups.group_id
+AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
+AND dbo.Schedule.discipline = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%MS SQL%')
+AND dbo.Schedule.[date]	= '2023-12-01'
+AND dbo.Schedule.[time] = '14:30'
 
 SELECT 
 	dbo.Disciplines.discipline_name AS 'Дисциплина',
@@ -18,4 +23,6 @@ WHERE
 	dbo.Schedule.discipline = dbo.Disciplines.discipline_id
 AND dbo.Schedule.[group] = dbo.Groups.group_id
 AND dbo.Schedule.teacher = dbo.Teachers.teacher_id
-AND [discipline]= (SELECT discipline_id FROM Disciplines	WHERE discipline_name LIKE '%MS SQL%')
+AND dbo.Schedule.discipline = (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE '%MS SQL%')
+AND dbo.Schedule.[date]	= '2023-12-01'
+AND dbo.Schedule.[time] = '14:30'
