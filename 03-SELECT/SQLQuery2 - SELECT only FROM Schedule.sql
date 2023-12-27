@@ -5,6 +5,7 @@ WHERE
 AND [discipline]= (SELECT discipline_id FROM Disciplines	WHERE discipline_name LIKE '%MS SQL%')
 
 SELECT 
+	dbo.Schedule.lesson_id	AS 'ID занятия',
 	dbo.Disciplines.discipline_name AS 'Дисциплина',
 	dbo.Groups.group_name AS 'Группа',
 	DATENAME(dw, dbo.Schedule.[date]) AS 'День недели',
